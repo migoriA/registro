@@ -1,0 +1,10 @@
+.container{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    
+  }
+.card{
+    background-color: #7ea6f1;
+    display: inline-block;
+}
