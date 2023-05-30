@@ -27,13 +27,13 @@
                     <a class="nav-link active" aria-current="page" id="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Voti</a>
+                    <a class="nav-link" id="votinav" href="#">Voti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Assenze</a>
+                    <a class="nav-link" id="assenzenav" href="#">Assenze</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Registro di classe</a>
+                    <a class="nav-link" id="registronav" href="#">Registro di classe</a>
                 </li>
             </ul>
             </div>
@@ -66,19 +66,59 @@
         </div>
     </div>
     <div class="container-md voti">
-        <table class="table-secondary">
-            <thead>
-                <tr>
-                    <th>Materia</th>
-                    <th>Voto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mdade</td>
-                    <td>54357</td>
-                </tr>               
-            </tbody>
+        <span style="text-align: left; font-weight: 500;">Seleziona materie: </span>
+        <div class="btn-group" style="margin-bottom: 10px;margin-top: 5px;">
+            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Materie
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" style="text-align: center;">Tutte</a></li>
+              <!--<li><a class="dropdown-item" href="#">Action</a></li>-->
+              <!--TODO Inserire elenco materie preso dal db-->
+            </ul>
+          </div>
+        <table class="table table-striped">  
+            <tr class="table-primary">
+                <th class="table-primary">Materia</th>
+                <th class="table-primary">Data</th>
+                <th class="table-primary">Voto</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-primary">Mdade</td>
+                <td class="table-primary">Data</td>
+                <td class="table-primary">54357</td>
+                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
+            </tr>                      
+        </table>
+    </div>
+    <div class="container-md assenze" >
+        <table class="table table-striped">  
+            <tr class="table-primary">
+                <th class="table-primary">Data</th>
+                <th class="table-primary">Tipo Assenza</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-primary">Data</td>
+                <td class="table-primary">Tipo Assenza</td>
+                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
+            </tr>                      
+        </table>
+    </div>
+    <div class="container-md registro" >
+        <table class="table table-striped">  
+            <tr class="table-primary">
+                <th class="table-primary">Data</th>
+                <th class="table-primary">Argomento</th>
+                <th class="table-primary">Compiti</th>
+                <th class="table-primary">Verifiche</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-primary">Data</td>
+                <td class="table-primary">Argomento</td>
+                <td class="table-primary">Compiti</td>
+                <td class="table-primary">Verifiche</td>
+                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
+            </tr>                      
         </table>
     </div>
 </body>

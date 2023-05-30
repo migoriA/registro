@@ -6,14 +6,13 @@ body{
               radial-gradient(ellipse at bottom, #2190db, transparent)
 }
 .container{
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    
+  position: absolute;
+  top: 25%;
+  left: 25%;   
 }
 .card{
-    background-color: #7ea6f1;
-    display: inline-block;
+  background-color: #7ea6f1;
+  display: inline-block;
 }
 .card-personal{
   width: 150px;
@@ -43,4 +42,25 @@ body{
 }
 .nav-link:hover{
   cursor: pointer;
+}
+.voti{
+  display: grid;
+  margin: 20px auto;
+  text-align: center;
+  width: 600px;
+}
+.btn-group{
+  width: 200px;
+}
+.assenze{
+  display: grid;
+  margin: 101.6px auto;
+  width: 600px;
+  text-align: center;
+}
+.registro{
+  display: grid;
+  margin: 101.6px auto;
+  width: 750px;
+  text-align: center;
 }
