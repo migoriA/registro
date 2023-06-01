@@ -55,4 +55,9 @@ window.onload = () =>{
 
     $('#MainPage').hide()
   })
+
+  inviaRichiesta("GET", "../Php/getUser.php").catch(errore).then(function (response) {
+    console.log(response["data"])
+
+})
 }
