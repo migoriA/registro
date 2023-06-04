@@ -8,7 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../Image/1486503746-book-learning-bookmark-ribbon-education-mark-school_81290.ico" type="image/x-icon">
-    <script src="script.js" type="application/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.7/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="../lib/axios@1.1.2.min.js" type="application/javascript"></script>
+    <script src="../libreria.js" type="application/javascript"></script>
+    <script src="studente.js" type="application/javascript"></script>
     <link rel="stylesheet" href="style.css">
     <title>MainPage</title>
 </head>
@@ -30,7 +34,7 @@
                     <a class="nav-link" id="votinav" href="#">Voti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="assenzenav" href="#"> Assenze </a>
+                    <a class="nav-link" id="assenzenav" href="#">Assenze</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="registronav" href="#">Registro di classe</a>
@@ -78,30 +82,27 @@
             </ul>
           </div>
         <table class="table table-striped">  
-            <tr class="table-primary">
-                <th class="table-primary">Materia</th>
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Voto</th>
-            </tr>
-            <tr class="table-primary">
-                <td class="table-primary">Mdade</td>
-                <td class="table-primary">Data</td>
-                <td class="table-primary">54357</td>
+            <thead>
+                <th>Materia</th>
+                <th>Data</th>
+                <th>Voto</th>
+            </thead>
+            <tbody id="listaVoti">
                 <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tr>                      
+            </tbody>                      
         </table>
     </div>
     <div class="container-md assenze" >
         <table class="table table-striped">  
-            <tr class="table-primary">
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Tipo Assenza</th>
-            </tr>
-            <tr class="table-primary">
-                <td class="table-primary">Data</td>
-                <td class="table-primary">Tipo Assenza</td>
+            <thead>
+                <th>Data</th>
+                <th>Motivazione</th>
+                <th>Giustifica</th>
+            </thead>
+            <tbody id="listaAssenze">
+                
                 <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tr>                      
+            </tbody>                      
         </table>
     </div>
     <div class="container-md registro" >
