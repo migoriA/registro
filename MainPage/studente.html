@@ -40,6 +40,8 @@
                     <a class="nav-link" id="registronav" href="#">Registro di classe</a>
                 </li>
             </ul>
+                <h5 style="text-align: right; margin: 0 auto; margin-right: 0;"><small class='text-muted'>Benvenuto, <!--Nome acceduto--></small></h5>
+                <a style="text-align: right; margin: 0 auto; margin-right: 0;" href="#" id="LogOut">Log Out</a>
             </div>
         </div>
     </nav>
@@ -82,27 +84,30 @@
             </ul>
           </div>
         <table class="table table-striped">  
-            <thead>
-                <th>Materia</th>
-                <th>Data</th>
-                <th>Voto</th>
-            </thead>
-            <tbody id="listaVoti">
+            <tr class="table-primary">
+                <th class="table-primary">Materia</th>
+                <th class="table-primary">Data</th>
+                <th class="table-primary">Voto</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-primary">Mdade</td>
+                <td class="table-primary">Data</td>
+                <td class="table-primary">54357</td>
                 <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tbody>                      
+            </tr>                      
         </table>
     </div>
     <div class="container-md assenze" >
         <table class="table table-striped">  
-            <thead>
-                <th>Data</th>
-                <th>Motivazione</th>
-                <th>Giustifica</th>
-            </thead>
-            <tbody id="listaAssenze">
-                
+            <tr class="table-primary">
+                <th class="table-primary">Data</th>
+                <th class="table-primary">Tipo Assenza</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-primary">Data</td>
+                <td class="table-primary">Tipo Assenza</td>
                 <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tbody>                      
+            </tr>                      
         </table>
     </div>
     <div class="container-md registro" >
