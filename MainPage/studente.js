@@ -90,6 +90,7 @@ window.onload = () => {
   function getVoti(user_data, id_materia = 0, nome_materia = "") {
     // Carica tasto "Seleziona i voti di tutte le materie"
     let tutteMaterie = $("<a>").appendTo(listaMaterie).addClass("dropdown-item getAll").text("Tutte").on("click", function () {
+      $("#btnMateria").text("Tutte")
       getVoti(user_data, 0)
     })
     listaMaterie.append(tutteMaterie)
