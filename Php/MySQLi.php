@@ -5,7 +5,7 @@ define("TIMEOUT", 600); # 10min Timeout
 function openConnection()
 {
 	
-	define("DB_NAME", "registro");
+	define("DB_NAME", "registrodefault");
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");
 	define("DB_PASSWORD", "");

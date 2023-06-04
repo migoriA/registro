@@ -72,14 +72,12 @@
     <div class="container-md voti">
         <span style="text-align: left; font-weight: 500;">Seleziona materie: </span>
         <div class="btn-group" style="margin-bottom: 10px;margin-top: 5px;">
-            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Materie
+            <button type="button" class="btn btn-info dropdown-toggle" id="btnMateria" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutte
             </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" style="text-align: center;">Tutte</a></li>
-              <!--<li><a class="dropdown-item" href="#">Action</a></li>-->
-              <!--TODO Inserire elenco materie preso dal db-->
-            </ul>
+            <div class="dropdown-menu" id="listaMaterie">
+              <!--Materie-->
+            </div>
           </div>
         <table class="table table-striped">  
             <thead>
@@ -88,7 +86,7 @@
                 <th>Voto</th>
             </thead>
             <tbody id="listaVoti">
-                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
+                <!--Voti-->
             </tbody>                      
         </table>
     </div>
@@ -100,8 +98,7 @@
                 <th>Giustifica</th>
             </thead>
             <tbody id="listaAssenze">
-                
-                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
+                <!--Assenze-->
             </tbody>                      
         </table>
     </div>
