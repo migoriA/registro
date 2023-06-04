@@ -2,6 +2,7 @@ window.onload = () => {
   let listaVoti = $("#listaVoti")
   let listaAssenze = $("#listaAssenze")
   let listaMaterie = $("#listaMaterie")
+  let listaArgomenti = $("#listaArgomenti")
 
   $('.voti').eq(0).hide()
   $('.assenze').eq(0).hide()
@@ -67,13 +68,12 @@ window.onload = () => {
     getMaterie(user_data)
     getVoti(user_data)
     getAssenze(user_data)
-    //getArgomenti(user_data)
+    getArgomenti(user_data)
   })
 
   function getMaterie(user_data) {
     inviaRichiesta("GET", "../Php/getMaterieByClass.php", { "classe": user_data["classe"] }).catch(errore).then(function (materie) {
       let id_materie = JSON.parse(materie["data"]["materie"]) // prendo tutti i codici delle materie
-      console.log(id_materie)
 
       for (let id of id_materie) {
         inviaRichiesta("GET", "../Php/getMateriaById.php", { id }).catch(errore).then(function (materie) {
@@ -99,7 +99,6 @@ window.onload = () => {
     // Richiesta per prendere dati
     if (id_materia == 0) { // ID=0 quando bisogna selezionarle tutte
       inviaRichiesta("GET", "../Php/getVoti.php", { "user": user_data["matricola"] }).catch(errore).then(function (voti) {
-        console.log(voti["data"])
         for (let voto of voti["data"]) {
           let tr = $("<tr>").appendTo(listaVoti)
           inviaRichiesta("GET", "../Php/getMateriaById.php", { "id": voto["materia"] }).catch(errore).then(function (materia) {
@@ -127,7 +126,6 @@ window.onload = () => {
     // Richiesta per prendere dati
     inviaRichiesta("GET", "../Php/getAssenze.php", { "user": user_data["matricola"] }).catch(errore).then(function (assenze) {
       assenze = assenze["data"]
-      console.log(assenze)
       for (let assenza of assenze) {
         let tr = $("<tr>").appendTo(listaAssenze)
         $("<td>").appendTo(tr).text(assenza["data"])
@@ -158,6 +156,23 @@ window.onload = () => {
             }
           })
         }))
+      }
+    })
+  }
+
+  function getArgomenti(user_data) {
+    listaArgomenti.html("")
+    // Richiesta per prendere dati
+    inviaRichiesta("GET", "../Php/getArgomenti.php", { "classe": user_data["classe"] }).catch(errore).then(function (argomenti) {
+      argomenti = argomenti["data"]
+      for (let argomento of argomenti) {
+        let tr = $("<tr>").appendTo(listaArgomenti)
+        $("<td>").appendTo(tr).text(argomento["data"])
+        $("<td>").appendTo(tr).text(argomento["argomento"])
+        inviaRichiesta("GET", "../Php/getMateriaById.php", { "id": argomento["materia"] }).catch(errore).then(function (materie) {
+          let nome_materia = materie["data"]["materia"]
+          $("<td>").appendTo(tr).text(nome_materia)
+        })
       }
     })
   }
