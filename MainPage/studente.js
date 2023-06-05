@@ -66,6 +66,9 @@ window.onload = () => {
     user_data = user_data["data"]
     console.log(user_data)
 
+    $("#benvenuto").text("Benvenuto, " + user_data["nome"].toUpperCase() + " " + user_data["cognome"].toUpperCase())
+    $("#LogOut").on("click", LogOut)
+
     getMaterie(user_data)
     getVoti(user_data)
     getAssenze(user_data)
@@ -94,7 +97,7 @@ window.onload = () => {
 
   function getVoti(user_data, id_materia = 0, nome_materia = "") {
     // Carica tasto "Seleziona i voti di tutte le materie"
-    
+
     // Carica tabella
     listaVoti.html("")
     // Richiesta per prendere dati

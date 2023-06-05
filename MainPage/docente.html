@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="../Image/1486503746-book-learning-bookmark-ribbon-education-mark-school_81290.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../Image/1486503746-book-learning-bookmark-ribbon-education-mark-school_81290.ico"
+        type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.7/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script src="../lib/axios@1.1.2.min.js" type="application/javascript"></script>
@@ -16,85 +22,77 @@
     <link rel="stylesheet" href="style.css">
     <title>MainPage</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: white;box-shadow: 11px 9px 36px 3px #888;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"
+        style="background-color: white;box-shadow: 11px 9px 36px 3px #888;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../Image/1486503746-book-learning-bookmark-ribbon-education-mark-school_81290.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top">
+                <img src="../Image/1486503746-book-learning-bookmark-ribbon-education-mark-school_81290.png" alt="Logo"
+                    width="40" height="35" class="d-inline-block align-text-top">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="votinav" href="#">Voti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="assenzenav" href="#">Assenze</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="registronav" href="#">Registro di classe</a>
-                </li>
-            </ul>
-            <h5 style="text-align: right; margin: 0 auto; margin-right: 0;"><small class='text-muted'>Benvenuto, <!--Nome acceduto--></small></h5>
-            <a style="text-align: right; margin: 0 auto; margin-right: 0;" href="#" id="LogOut">Log Out</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" id="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="assenzenav" href="#">Assenze</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="registronav" href="#">Elenco classe</a>
+                    </li>
+                </ul>
+                <h5 style="text-align: right; margin: 0 auto; margin-right: 0;"><small class='text-muted'
+                        id="benvenuto">Benvenuto, <!--Nome acceduto--></small></h5>
+                <a style="text-align: right; margin: 0 auto; margin-right: 0;" href="#" id="LogOut">Log Out</a>
             </div>
         </div>
     </nav>
     <div class="container-md" id="MainPage">
         <h1 style="margin:0 auto; text-align: center; margin-top: 10px;">Welcome to our home</h1>
-        
+
         <div class="row">
             <div class="btn-group" style="display: grid;position: absolute;top: 15%;left:25%;">
-                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Classi
+                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" id="btnClasse">
+                    Classi
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" style="text-align: center;">Tutte</a></li>
-                  <!--<li><a class="dropdown-item" href="#">Action</a></li>-->
-                  <!--TODO Inserire elenco materie preso dal db-->
+                <ul class="dropdown-menu" id="classe">
+                    <!--classi-->
+                </ul><br>
+                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" disabled id="btnMateria" value="1">
+                    Lingua e Letteratura Ita
+                </button>
+                <ul class="dropdown-menu" id="materie">
+                    <!--materie-->
                 </ul>
             </div>
 
-            <div class="col-3" id="voti">
-                <div class=" card-personal" style="background-image: url('../Image/education_rating_grade_paper_document_pencil_icon_141968.png');">
-                </div>
-                <div id="voti" class="label">
-                    <span>Voti</span>
-                </div>
-            </div>
-            <div class="col-3" id="assenze">
-                <div class=" card-personal" style="background-image: url('../Image/gui_calendar_leave_icon_157201.png');">
+            <!--<div class="col-3" id="assenze">
+                <div class=" card-personal"
+                    style="background-image: url('../Image/gui_calendar_leave_icon_157201.png');">
                 </div>
                 <div id="voti" class="label">
                     <span>Assenze</span>
                 </div>
-            </div>
-            <div class="col-3" id="registro">
-                <div class=" card-personal" style="background-image: url('../Image/3700481-blackboard-board-chalk-class-educational-materials-school_108759.png');">
+            </div>-->
+            <div class="col-3" id="elenco">
+                <div class=" card-personal"
+                    style="background-image: url('../Image/3700481-blackboard-board-chalk-class-educational-materials-school_108759.png');">
                 </div>
                 <div id="voti" class="label">
-                    <span>Registro di classe</span>
+                    <span>Elenco classe</span>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-md voti">
-        <span style="text-align: left; font-weight: 500;">Seleziona materie: </span>
-        <div class="btn-group" style="margin-bottom: 10px;margin-top: 5px;">
-            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Materie
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" style="text-align: center;">Tutte</a></li>
-              <!--<li><a class="dropdown-item" href="#">Action</a></li>-->
-              <!--TODO Inserire elenco materie preso dal db-->
-            </ul>
-          </div>
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
@@ -102,13 +100,13 @@
                     <th class="table-primary">Data</th>
                     <th class="table-primary">Voto</th>
                 </tr>
-            </thead>  
+            </thead>
             <tbody id="listaVoti">
                 <!--Voti-->
-            </tbody>                    
+            </tbody>
         </table>
     </div>
-    <div class="container-md assenze" >
+    <div class="container-md assenze">
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
@@ -118,22 +116,24 @@
             </thead>
             <tbody id="listaAssenze">
                 <!--Assenze-->
-            </tbody>                   
+            </tbody>
         </table>
     </div>
-    <div class="container-md registro" >
+    <div class="container-md elenco">
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
-                    <th class="table-primary">Data</th>
-                    <th class="table-primary">Argomento</th>
-                    <th class="table-primary">Materia</th>
+                    <th class="table-primary">Nome</th>
+                    <th class="table-primary">Cognome</th>
+                    <th class="table-primary">Voto</th>
+                    <th class="table-primary">Voti</th>
                 </tr>
-            </thead> 
-            <tbody id="listaArgomenti">
-                <!--Argomenti-->
-            </tbody>                   
+            </thead>
+            <tbody id="elencoStudenti">
+                <!--Studenti-->
+            </tbody>
         </table>
     </div>
 </body>
+
 </html>

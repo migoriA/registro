@@ -42,3 +42,9 @@ function errore(err) {
 function randomNumber(a, b) {
 	return Math.floor((b - a + 1) * Math.random()) + a;
 }
+
+function LogOut() {
+	inviaRichiesta("POST", "../Php/logout.php").catch(errore).then(function () {
+		window.location.href = "../logIn.html"
+	})
+}
