@@ -66,11 +66,20 @@ window.onload = () => {
     user_data = user_data["data"]
     console.log(user_data)
 
+    $("#benvenuto").text("Benvenuto, " + user_data["nome"].toUpperCase() + " " + user_data["cognome"].toUpperCase())
+    $("#LogOut").on("click", LogOut)
+
     getMaterie(user_data)
     getVoti(user_data)
     getAssenze(user_data)
     getArgomenti(user_data)
   })
+
+  function LogOut() {
+    inviaRichiesta("POST", "../Php/logout.php").catch(errore).then(function () {
+      window.location.href = "../logIn.html"
+    })
+  }
 
   function getMaterie(user_data) {
     inviaRichiesta("GET", "../Php/getMaterieByClass.php", { "classe": user_data["classe"] }).catch(errore).then(function (materie) {
@@ -94,7 +103,7 @@ window.onload = () => {
 
   function getVoti(user_data, id_materia = 0, nome_materia = "") {
     // Carica tasto "Seleziona i voti di tutte le materie"
-    
+
     // Carica tabella
     listaVoti.html("")
     // Richiesta per prendere dati
