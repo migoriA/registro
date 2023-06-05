@@ -75,6 +75,12 @@ window.onload = () => {
     getArgomenti(user_data)
   })
 
+  function LogOut() {
+    inviaRichiesta("POST", "../Php/logout.php").catch(errore).then(function () {
+      window.location.href = "../logIn.html"
+    })
+  }
+
   function getMaterie(user_data) {
     inviaRichiesta("GET", "../Php/getMaterieByClass.php", { "classe": user_data["classe"] }).catch(errore).then(function (materie) {
       let id_materie = JSON.parse(materie["data"]["materie"]) // prendo tutti i codici delle materie
