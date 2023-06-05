@@ -95,48 +95,44 @@
               <!--TODO Inserire elenco materie preso dal db-->
             </ul>
           </div>
-        <table class="table table-striped">  
-            <tr class="table-primary">
-                <th class="table-primary">Materia</th>
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Voto</th>
-            </tr>
-            <tr class="table-primary">
-                <td class="table-primary">Mdade</td>
-                <td class="table-primary">Data</td>
-                <td class="table-primary">54357</td>
-                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tr>                      
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-primary">
+                    <th class="table-primary">Materia</th>
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Voto</th>
+                </tr>
+            </thead>  
+            <tbody id="listaVoti">
+                <!--Voti-->
+            </tbody>                    
         </table>
     </div>
     <div class="container-md assenze" >
-        <table class="table table-striped">  
-            <tr class="table-primary">
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Tipo Assenza</th>
-            </tr>
-            <tr class="table-primary">
-                <td class="table-primary">Data</td>
-                <td class="table-primary">Tipo Assenza</td>
-                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tr>                      
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-primary">
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Tipo Assenza</th>
+                </tr>
+            </thead>
+            <tbody id="listaAssenze">
+                <!--Assenze-->
+            </tbody>                   
         </table>
     </div>
     <div class="container-md registro" >
-        <table class="table table-striped">  
-            <tr class="table-primary">
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Argomento</th>
-                <th class="table-primary">Compiti</th>
-                <th class="table-primary">Verifiche</th>
-            </tr>
-            <tr class="table-primary">
-                <td class="table-primary">Data</td>
-                <td class="table-primary">Argomento</td>
-                <td class="table-primary">Compiti</td>
-                <td class="table-primary">Verifiche</td>
-                <!--TODO Svuotare il contenuto della tabella e inserire i dati che ci sono nel db, ogni volta che la materia della cmb cambia svuoto e richiedo i dati-->
-            </tr>                      
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-primary">
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Argomento</th>
+                    <th class="table-primary">Materia</th>
+                </tr>
+            </thead> 
+            <tbody id="listaArgomenti">
+                <!--Argomenti-->
+            </tbody>                   
         </table>
     </div>
 </body>

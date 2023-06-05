@@ -50,6 +50,8 @@
                         <a class="nav-link" id="registronav" href="#">Registro di classe</a>
                     </li>
                 </ul>
+                <h5 style="text-align: right; margin: 0 auto; margin-right: 0;"><small class='text-muted'>Benvenuto, <!--Nome acceduto--></small></h5>
+                <a style="text-align: right; margin: 0 auto; margin-right: 0;" href="#" id="LogOut">Log Out</a>
             </div>
         </div>
     </nav>
@@ -95,33 +97,39 @@
         </div>
         <table class="table table-striped">
             <thead>
-                <th>Materia</th>
-                <th>Data</th>
-                <th>Voto</th>
+                <tr class="table-primary">
+                    <th class="table-primary">Materia</th>
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Voto</th>
+                </tr>
             </thead>
             <tbody id="listaVoti">
-                <!--Voti-->
+                
             </tbody>
         </table>
     </div>
     <div class="container-md assenze">
         <table class="table table-striped">
             <thead>
-                <th>Data</th>
-                <th>Motivazione</th>
-                <th>Giustifica</th>
+                <tr class="table-primary">
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Tipo Assenza</th>
+                </tr>
             </thead>
             <tbody id="listaAssenze">
+                
                 <!--Assenze-->
             </tbody>
         </table>
     </div>
     <div class="container-md registro">
         <table class="table table-striped">
-            <thead class="table-primary">
-                <th class="table-primary">Data</th>
-                <th class="table-primary">Argomento</th>
-                <th class="table-primary">Materia</th>
+            <thead>
+                <tr class="table-primary">
+                    <th class="table-primary">Data</th>
+                    <th class="table-primary">Argomento</th>
+                    <th class="table-primary">Materia</th>
+                </tr>
             </thead>
             <tbody id="listaArgomenti">
                 <!--Argomenti-->

@@ -1,3 +1,4 @@
+"use strict"
 window.onload = () => {
   let listaVoti = $("#listaVoti")
   let listaAssenze = $("#listaAssenze")
@@ -74,7 +75,11 @@ window.onload = () => {
   function getMaterie(user_data) {
     inviaRichiesta("GET", "../Php/getMaterieByClass.php", { "classe": user_data["classe"] }).catch(errore).then(function (materie) {
       let id_materie = JSON.parse(materie["data"]["materie"]) // prendo tutti i codici delle materie
-
+      let tutteMaterie = $("<a>").appendTo(listaMaterie).addClass("dropdown-item getAll").text("Tutte").on("click", function () {
+        $("#btnMateria").text("Tutte")
+        getVoti(user_data, 0)
+      })
+      listaMaterie.append(tutteMaterie)
       for (let id of id_materie) {
         inviaRichiesta("GET", "../Php/getMateriaById.php", { id }).catch(errore).then(function (materie) {
           let nome_materia = materie["data"]["materia"]
@@ -89,22 +94,18 @@ window.onload = () => {
 
   function getVoti(user_data, id_materia = 0, nome_materia = "") {
     // Carica tasto "Seleziona i voti di tutte le materie"
-    let tutteMaterie = $("<a>").appendTo(listaMaterie).addClass("dropdown-item getAll").text("Tutte").on("click", function () {
-      $("#btnMateria").text("Tutte")
-      getVoti(user_data, 0)
-    })
-    listaMaterie.append(tutteMaterie)
+    
     // Carica tabella
     listaVoti.html("")
     // Richiesta per prendere dati
     if (id_materia == 0) { // ID=0 quando bisogna selezionarle tutte
       inviaRichiesta("GET", "../Php/getVoti.php", { "user": user_data["matricola"] }).catch(errore).then(function (voti) {
         for (let voto of voti["data"]) {
-          let tr = $("<tr>").appendTo(listaVoti)
+          let tr = $("<tr>").addClass('table-primary').appendTo(listaVoti)
           inviaRichiesta("GET", "../Php/getMateriaById.php", { "id": voto["materia"] }).catch(errore).then(function (materia) {
-            $("<td>").appendTo(tr).text(materia["data"]["materia"])
-            $("<td>").appendTo(tr).text(voto["data"])
-            $("<td>").appendTo(tr).text(voto["voto"])
+            $("<td>").addClass('table-primary').appendTo(tr).text(materia["data"]["materia"])
+            $("<td>").addClass('table-primary').appendTo(tr).text(voto["data"])
+            $("<td>").addClass('table-primary').appendTo(tr).text(voto["voto"])
           })
         }
       }
@@ -112,10 +113,10 @@ window.onload = () => {
     } else {
       inviaRichiesta("GET", "../Php/getVotiByMateria.php", { "id": id_materia }).catch(errore).then(function (voti) {
         for (let voto of voti["data"]) {
-          let tr = $("<tr>").appendTo(listaVoti)
-          $("<td>").appendTo(tr).text(nome_materia)
-          $("<td>").appendTo(tr).text(voto["data"])
-          $("<td>").appendTo(tr).text(voto["voto"])
+          let tr = $("<tr>").addClass('table-primary').appendTo(listaVoti)
+          $("<td>").addClass('table-primary').appendTo(tr).text(nome_materia)
+          $("<td>").addClass('table-primary').appendTo(tr).text(voto["data"])
+          $("<td>").addClass('table-primary').appendTo(tr).text(voto["voto"])
         }
       })
     }
@@ -127,10 +128,10 @@ window.onload = () => {
     inviaRichiesta("GET", "../Php/getAssenze.php", { "user": user_data["matricola"] }).catch(errore).then(function (assenze) {
       assenze = assenze["data"]
       for (let assenza of assenze) {
-        let tr = $("<tr>").appendTo(listaAssenze)
-        $("<td>").appendTo(tr).text(assenza["data"])
-        $("<td>").appendTo(tr).text(assenza["motivazione"])
-        $("<td>").appendTo(tr).append($("<button>").addClass(assenza["giustificato"] == "1" ? "btn btn-success" : "btn btn-danger").prop("disabled", assenza["giustificato"] == "1" ? true : false).text("Giustifica").on("click", function () {
+        let tr = $("<tr>").addClass('table-primary').appendTo(listaAssenze)
+        $("<td>").addClass('table-primary').appendTo(tr).text(assenza["data"])
+        $("<td>").addClass('table-primary').appendTo(tr).text(assenza["motivazione"])
+        $("<td>").addClass('table-primary').appendTo(tr).append($("<button>").addClass(assenza["giustificato"] == "1" ? "btn btn-success" : "btn btn-danger").prop("disabled", assenza["giustificato"] == "1" ? true : false).text("Giustifica").on("click", function () {
           Swal.fire({
             "title": "Giustifica assenze",
             "showCancelButton": true,
@@ -166,12 +167,12 @@ window.onload = () => {
     inviaRichiesta("GET", "../Php/getArgomenti.php", { "classe": user_data["classe"] }).catch(errore).then(function (argomenti) {
       argomenti = argomenti["data"]
       for (let argomento of argomenti) {
-        let tr = $("<tr>").appendTo(listaArgomenti)
-        $("<td>").appendTo(tr).text(argomento["data"])
-        $("<td>").appendTo(tr).text(argomento["argomento"])
+        let tr = $("<tr>").addClass('table-primary').appendTo(listaArgomenti)
+        $("<td>").addClass('table-primary').appendTo(tr).text(argomento["data"])
+        $("<td>").addClass('table-primary').appendTo(tr).text(argomento["argomento"])
         inviaRichiesta("GET", "../Php/getMateriaById.php", { "id": argomento["materia"] }).catch(errore).then(function (materie) {
           let nome_materia = materie["data"]["materia"]
-          $("<td>").appendTo(tr).text(nome_materia)
+          $("<td>").addClass('table-primary').appendTo(tr).text(nome_materia)
         })
       }
     })

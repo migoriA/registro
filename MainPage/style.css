@@ -61,6 +61,6 @@ body{
 .registro{
   display: grid;
   margin: 101.6px auto;
-  width: 750px;
-  text-align: center;
+  width: 1200px;
+  text-align: center; 
 }
